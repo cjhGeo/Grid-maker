@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <fieldset>
+        <input type="file" name="Image"  accept="image/png, image/jpeg" id="imgInp" onchange="loadFile(event)">
+        <div>
+            <label for="">Columns:</label>
+            <input type="number" name="Columns" id="col">
+        </div>
+        <div>
+            <label for="">Rows:</label>
+            <input type="number" name="Rows" id="row">
+        </div>
+        <div>
+            <label for="">Grid Thickness:</label>
+            <input type="number" name="width" id="gridWidth">
+        </div>
+        <div>
+            <label for="">Colour (Hex Code):</label>
+            <input type="text" name="Colour" id="colour">
+        </div>
+
+        <input type="button" name="Grid" id="loadGridBtn" onclick="loadGrid()">
+    </fieldset>
+
+    <br>
+    
+    <div>
+        <img src="" alt="">
+
+        <div id="grid">
+            <div id="gridCell"></div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

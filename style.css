@@ -1,0 +1,14 @@
+img {
+    position: absolute;
+    z-index: 0;
+}
+
+#grid {
+    display: grid;
+    position: absolute;
+    z-index: 1;
+}
+
+#gridCell {
+    border: 1px solid black;
+}
