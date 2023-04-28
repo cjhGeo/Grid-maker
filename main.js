@@ -32,8 +32,10 @@ function markSpot(gridCell) {
         document.querySelector("#" + String(gridCell)).innerHTML = ""
     }
 
-    let gridCellWidth = ((document.querySelector("img").naturalWidth) / (document.querySelector("#col").value));
-    let gridCellHeight = ((document.querySelector("img").naturalHeight) / (document.querySelector("#row").value));
+    let totalGridWidth = (document.querySelector("#gridWidth").value > 1 ? (2 * (document.querySelector("#gridWidth").value)) : 2);
+    console.log(totalGridWidth);
+    let gridCellWidth = (((document.querySelector("img").naturalWidth) / (document.querySelector("#col").value) - totalGridWidth));
+    let gridCellHeight = (((document.querySelector("img").naturalHeight) / (document.querySelector("#row").value) - totalGridWidth));
 
     document.querySelectorAll("i").forEach(i => {
         i.style.fontSize = (gridCellWidth < gridCellHeight ? (String(gridCellWidth) + "px") : (String(gridCellHeight) + "px"));
