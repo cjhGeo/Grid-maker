@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/9507e9e909.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <fieldset>
@@ -23,11 +24,17 @@
             <input type="number" name="width" id="gridWidth">
         </div>
         <div>
-            <label for="">Colour (Hex Code):</label>
-            <input type="text" name="Colour" id="colour">
+            <label for="">Grid Colour (Hex Code):</label>
+            <input type="text" name="Colour" id="colour" oninput="checkHex(this.id)">
         </div>
+        <div>
+            <label for="">Marker Colour (Hex Code):</label>
+            <input type="text" name="markerColour" id="markerColour" oninput="checkHex(this.id)">
+        </div>
+        <div id="errorDiv" style="color: #ff0000;"></div>
+        <br>
 
-        <input type="button" name="Grid" id="loadGridBtn" onclick="loadGrid()">
+        <input type="button" name="Grid" id="loadGridBtn" value="Make Grid" onclick="loadGrid()">
     </fieldset>
 
     <br>
@@ -36,7 +43,7 @@
         <img src="" alt="">
 
         <div id="grid">
-            <div id="gridCell"></div>
+            <div class="gridCell" id="gridCell1" onclick="markSpot(this.id)"></div>
         </div>
     </div>
 </body>
