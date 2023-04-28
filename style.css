@@ -23,4 +23,5 @@ img {
     height: 100%;
     display: grid;
     place-items: center;
+    box-sizing: border-box;
 }
