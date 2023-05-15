@@ -43,7 +43,7 @@ function markSpot(gridCell) {
         });
     } else if (document.querySelector("#markerType").value == "fill") {
         document.querySelector("#" + String(gridCell)).style.backgroundColor = document.querySelector("#fillColour").value;
-        document.querySelector("#" + String(gridCell)).style.opacity = document.querySelector("#fillColour").value;
+        document.querySelector("#" + String(gridCell)).style.opacity = document.querySelector("#fillOpacity").value;
     }
 }
 
