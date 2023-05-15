@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/9507e9e909.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <fieldset>
-        <input type="file" name="Image"  accept="image/png, image/jpeg" id="imgInp" onchange="loadFile(event)">
-        <div>
-            <label for="">Columns:</label>
-            <input type="number" name="Columns" id="col">
-        </div>
-        <div>
-            <label for="">Rows:</label>
-            <input type="number" name="Rows" id="row">
-        </div>
-        <div>
-            <label for="">Grid Thickness:</label>
-            <input type="number" name="width" id="gridWidth">
-        </div>
-        <div>
-            <label for="">Grid Colour (Hex Code):</label>
-            <input type="text" name="Colour" id="colour" oninput="checkHex(this.id)">
-        </div>
-        <div>
-            <label for="">Marker Colour (Hex Code):</label>
-            <input type="text" name="markerColour" id="markerColour" oninput="checkHex(this.id)">
-        </div>
-        <div id="errorDiv" style="color: #ff0000;"></div>
-        <br>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://kit.fontawesome.com/9507e9e909.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<fieldset>
+			<input type="file" name="Image" accept="image/png, image/jpeg" id="imgInp" onchange="loadFile(event)" />
+			<div>
+				<label for="">Columns:</label>
+				<input type="number" name="Columns" id="col" />
+			</div>
+			<div>
+				<label for="">Rows:</label>
+				<input type="number" name="Rows" id="row" />
+			</div>
+			<div>
+				<label for="">Grid Thickness:</label>
+				<input type="number" name="width" id="gridWidth" />
+			</div>
+			<div>
+				<label for="">Grid Colour (Hex Code):</label>
+				<input type="text" name="Colour" id="colour" oninput="checkHex(this.id)" />
+			</div>
 
-        <input type="button" name="Grid" id="loadGridBtn" value="Make Grid" onclick="loadGrid()">
+			<br />
 
-        <br>
-        <br>
+			<label for="Marker">Marker Type:</label>
+			<select name="markerType" id="markerType">
+				<option value="cross">Cross</option>
+				<option value="fill">Fill</option>
+			</select>
 
-        <div>Once you've created the grid over the image, click any cell to mark it</div>
-        <div>Also, no there is no download button, screenshot it</div>
-    </fieldset>
+			<br />
+			<br />
 
-    <br>
-    
-    <div>
-        <img src="" alt="">
+			<div id="crossMarkerDiv">
+				<label for="">Cross Colour (Hex Code):</label>
+				<input type="text" name="markerColour" id="markerColour" oninput="checkHex(this.id)" />
 
-        <div id="grid">
-            <div class="gridCell" id="gridCell1" onclick="markSpot(this.id)"></div>
-        </div>
-    </div>
-</body>
-<script src="main.js"></script>
+				<div id="errorDiv" style="color: #ff0000"></div>
+			</div>
+
+			<br />
+
+			<div id="fillMarkerDiv">
+				<label for="opacity">Fill Opacity:</label>
+				<input style="width: 30px" type="number" name="fillOpacityInput" id="fillOpacityInput" />
+				<span>%</span>
+
+				<br />
+
+				<label for="fillColour">Fill Colour: </label>
+				<input type="text" name="fillColour" id="fillColour" oninput="checkHex(this.id)" />
+			</div>
+
+			<br />
+
+			<input type="button" name="Grid" id="loadGridBtn" value="Make Grid" onclick="loadGrid()" />
+
+			<br />
+			<br />
+
+			<div>Once you've created the grid over the image, click any cell to mark it</div>
+			<div>Also, no there is no download button, screenshot it</div>
+		</fieldset>
+
+		<br />
+
+		<div>
+			<img src="" alt="" />
+
+			<div id="grid">
+				<div class="gridCell" id="gridCell1" onclick="markSpot(this.id)"></div>
+			</div>
+		</div>
+	</body>
+	<script src="main.js"></script>
 </html>
