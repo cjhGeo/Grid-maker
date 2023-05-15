@@ -26,20 +26,25 @@ function loadGrid() {
 }
 
 function markSpot(gridCell) {
-    if (document.querySelector("#" + String(gridCell)).innerHTML == "") {
-        document.querySelector("#" + String(gridCell)).innerHTML = '<i class="fa-sharp fa-regular fa-xmark" style="outline: none; color: ' + String(document.querySelector("#markerColour").value) + ';"></i>';
-    } else {
-        document.querySelector("#" + String(gridCell)).innerHTML = ""
+    if (document.querySelector("#markerType").value == "cross") {
+        if (document.querySelector("#" + String(gridCell)).innerHTML == "") {
+            document.querySelector("#" + String(gridCell)).innerHTML = '<i class="fa-sharp fa-regular fa-xmark" style="outline: none; color: ' + String(document.querySelector("#markerColour").value) + ';"></i>';
+        } else {
+            document.querySelector("#" + String(gridCell)).innerHTML = ""
+        }
+
+        let totalGridWidth = (document.querySelector("#gridWidth").value > 1 ? (2 * (document.querySelector("#gridWidth").value)) : 2);
+        console.log(totalGridWidth);
+        let gridCellWidth = (((document.querySelector("img").naturalWidth) / (document.querySelector("#col").value) - totalGridWidth));
+        let gridCellHeight = (((document.querySelector("img").naturalHeight) / (document.querySelector("#row").value) - totalGridWidth));
+
+        document.querySelectorAll("i").forEach(i => {
+            i.style.fontSize = (gridCellWidth < gridCellHeight ? (String(gridCellWidth) + "px") : (String(gridCellHeight) + "px"));
+        });
+    } else if (document.querySelector("#markerType").value == "fill") {
+        document.querySelector("#" + String(gridCell)).style.backgroundColor = document.querySelector("#fillColour").value;
+        document.querySelector("#" + String(gridCell)).style.opacity = document.querySelector("#fillColour").value;
     }
-
-    let totalGridWidth = (document.querySelector("#gridWidth").value > 1 ? (2 * (document.querySelector("#gridWidth").value)) : 2);
-    console.log(totalGridWidth);
-    let gridCellWidth = (((document.querySelector("img").naturalWidth) / (document.querySelector("#col").value) - totalGridWidth));
-    let gridCellHeight = (((document.querySelector("img").naturalHeight) / (document.querySelector("#row").value) - totalGridWidth));
-
-    document.querySelectorAll("i").forEach(i => {
-        i.style.fontSize = (gridCellWidth < gridCellHeight ? (String(gridCellWidth) + "px") : (String(gridCellHeight) + "px"));
-    });
 }
 
 function checkHex(hexOf) {
