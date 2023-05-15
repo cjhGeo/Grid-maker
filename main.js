@@ -44,6 +44,10 @@ function markSpot(gridCell) {
     } else if (document.querySelector("#markerType").value == "fill") {
         document.querySelector("#" + String(gridCell)).style.backgroundColor = document.querySelector("#fillColour").value;
         document.querySelector("#" + String(gridCell)).style.opacity = document.querySelector("#fillOpacity").value + "%";
+    } else if (document.querySelector("#markerType").value == "erase") {
+        document.querySelector("#" + String(gridCell)).innerHTML = ""
+        document.querySelector("#" + String(gridCell)).style.backgroundColor = "transparent";
+        document.querySelector("#" + String(gridCell)).style.opacity = "100%";
     }
 }
 
