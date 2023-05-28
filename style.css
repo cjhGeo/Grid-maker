@@ -25,3 +25,7 @@ img {
     place-items: center;
     box-sizing: border-box;
 }
+
+body {
+    min-height: 200vh;
+}
